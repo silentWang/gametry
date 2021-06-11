@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="UIEuiSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Image source="uibg_png" x="0" y="0"/>
+	<e:Label id="titleTxt" text="这是title" x="22" y="53" anchorOffsetX="0" width="557" textAlign="center" bold="true" textColor="0x0003f9"/>
+	<e:Image id="effectImg" y="324.4" x="300.5" fillMode="scale" scaleX="0.8" scaleY="0.8" anchorOffsetX="272" anchorOffsetY="284" source="actionImg_json.effect"/>
+	<e:Image x="175" y="182.84" anchorOffsetX="0" width="250" anchorOffsetY="0" height="283.92" source="actionImg_json.mostlevel"/>
+	<e:Image id="button" x="132" y="552" source="actionImg_json.bigbtn"/>
+	<e:Label text="确定" x="270.5" y="589.4" bold="true" touchEnabled="false"/>
+</e:Skin>

@@ -1,0 +1,26 @@
+{
+	"groups": [
+		{
+			"keys": "bg_jpg,uibg_png,actionImg_json",
+			"name": "preload"
+		}
+	],
+	"resources": [
+		{
+			"url": "assets/demo/bg.jpg",
+			"type": "image",
+			"name": "bg_jpg"
+		},
+		{
+			"url": "assets/demo/uibg.png",
+			"type": "image",
+			"name": "uibg_png"
+		},
+		{
+			"name": "actionImg_json",
+			"type": "sheet",
+			"url": "assets/demo/actionImg.json",
+			"subkeys": "bigbtn,effect,hg,mostlevel,mouse,sunsmile"
+		}
+	]
+}

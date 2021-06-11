@@ -1,0 +1,6 @@
+gamex/bin-debug
+gamex/.vscode
+gamex/.wing
+gamex/bin-release
+gamex/.DS_Store
+gamex/scripts/plugins

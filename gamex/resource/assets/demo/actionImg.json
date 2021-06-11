@@ -1,0 +1,7 @@
+{"file":"actionImg.png","frames":{
+"bigbtn":{"x":546,"y":557,"w":334,"h":102,"offX":0,"offY":1,"sourceW":336,"sourceH":104},
+"effect":{"x":0,"y":0,"w":544,"h":569,"offX":0,"offY":0,"sourceW":544,"sourceH":569},
+"hg":{"x":861,"y":0,"w":141,"h":155,"offX":0,"offY":0,"sourceW":141,"sourceH":155},
+"mostlevel":{"x":546,"y":0,"w":313,"h":385,"offX":26,"offY":0,"sourceW":339,"sourceH":385},
+"mouse":{"x":546,"y":387,"w":204,"h":168,"offX":0,"offY":0,"sourceW":204,"sourceH":168},
+"sunsmile":{"x":861,"y":157,"w":74,"h":74,"offX":0,"offY":0,"sourceW":74,"sourceH":74}}}
