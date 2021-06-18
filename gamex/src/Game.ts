@@ -14,6 +14,8 @@ class Game {
     private _top:egret.DisplayObjectContainer;
     private _gameDemo:GameDemo;
     private stageBg:egret.Bitmap;
+    private sbgWid = 1000;
+    private sbgHgt = 1000;
     public setStage(stage:egret.Stage){
         this._gameStage = stage;
         SpriteUtil.stageWidth = stage.stageWidth;
@@ -21,11 +23,13 @@ class Game {
         SpriteUtil.stageCenterX = SpriteUtil.stageWidth/2;
         SpriteUtil.stageCenterY = SpriteUtil.stageHeight/2;
         GameData.urlPath = GameUtil.getURLPath();
-        let bg = SpriteUtil.createImage("bg_jpg",false);
-        bg.width = stage.stageWidth;
-        bg.height = stage.stageHeight;
+        // let bg = SpriteUtil.createImage("bg_jpg",false);
+        let bg = new eui.Image();
+        bg.source = SourceUtil.imageBg;
         stage.addChild(bg);
         this.stageBg = bg;
+        // this.sbgWid = bg.width;
+        // this.sbgHgt = bg.height;
         
         this._bottom = new egret.DisplayObjectContainer();
         stage.addChild(this._bottom);
@@ -35,24 +39,26 @@ class Game {
         stage.addChild(this._top);
         this._gameView = new GameView();
         stage.addEventListener(egret.Event.RESIZE,this.setResize,this);
+        stage.addEventListener(egret.TouchEvent.TOUCH_TAP,this.touchHandler,this);
         this.setResize();
     }
 
     private setResize(){
         let isPortrait = this._gameStage.stageHeight >= this._gameStage.stageWidth;
-        this.stageBg.width = this._gameStage.stageWidth;
-        this.stageBg.height = this._gameStage.stageHeight;
+        this.gameStage.scaleMode = isPortrait ? egret.StageScaleMode.FIXED_WIDTH : egret.StageScaleMode.FIXED_HEIGHT;
+        this.stageBg.width = this.sbgWid <= this._gameStage.stageWidth ? this._gameStage.stageWidth : this.sbgWid;
+        this.stageBg.height = this.sbgWid <= this._gameStage.stageHeight ? this._gameStage.stageHeight : this.sbgWid;
         SpriteUtil.stageWidth = this._gameStage.stageWidth;
         SpriteUtil.stageHeight = this._gameStage.stageHeight;
         SpriteUtil.stageCenterX = SpriteUtil.stageWidth/2;
         SpriteUtil.stageCenterY = SpriteUtil.stageHeight/2;
         EventCenter.instance().dispatchEvent(new GameEvent(GameEvent.RESIZE_EVENT,{isPortrait}))
     }
-
+    
     get gameStage(){
         return this._gameStage;
     }
-
+    
     get gameView(){
         return this._gameView;
     }
@@ -60,7 +66,7 @@ class Game {
     get gameDemo(){
         return this._gameDemo;
     }
-
+    
     addBottom(display:egret.DisplayObject){
         if(this._bottom.contains(display)) return;
         this._bottom.addChild(display);
@@ -80,11 +86,11 @@ class Game {
             this.addBottom(this._gameDemo);
         }
         this._gameDemo.gotoGame();
-        //url参数
-        let materialid = GameUtil.getUrlValueByKey("materialid");
-        if(materialid != ""){
-            console.log(`来源id:${materialid}`);
-        }
     }
-
+    
+    private touchHandler(){
+        GameSound.instance().playH5Music(SourceUtil.audiobg);
+        this._gameStage.removeEventListener(egret.TouchEvent.TOUCH_TAP,this.touchHandler,this);
+    }
+    
 }

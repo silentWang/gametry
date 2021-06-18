@@ -6,8 +6,6 @@ declare module skins{
 	class CheckBoxSkin extends eui.Skin{
 	}
 }
-declare class GameSceneSkin extends eui.Skin{
-}
 declare module skins{
 	class HScrollBarSkin extends eui.Skin{
 	}
@@ -51,6 +49,12 @@ declare module skins{
 declare module skins{
 	class VSliderSkin extends eui.Skin{
 	}
+}
+declare class CardSkin extends eui.Skin{
+}
+declare class GameSceneSkin extends eui.Skin{
+}
+declare class ResultViewSkin extends eui.Skin{
 }
 declare class UIEuiSkin extends eui.Skin{
 }

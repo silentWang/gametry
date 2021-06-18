@@ -41,7 +41,7 @@ const config: ResourceManagerConfig = {
             }
         }
         else if (command == 'publish') {
-            const outputDir = `bin-release/web/gamex`;
+            const outputDir = `bin-release/web/playable`;
             return {
                 outputDir,
                 commands: [

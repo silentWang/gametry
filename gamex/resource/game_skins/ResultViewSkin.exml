@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="ResultViewSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:tween="egret.tween.*" >
+	<w:Declarations>
+		<tween:TweenGroup id="VV">
+			<tween:TweenItem target="{group}">
+				<tween:To duration="1000">
+					<tween:props>
+						<e:Object scaleX="{1.2}" scaleY="{1.2}"/>
+					</tween:props>
+				</tween:To>
+				<tween:To duration="1000">
+					<tween:props>
+						<e:Object scaleX="{1}" scaleY="{1}"/>
+					</tween:props>
+				</tween:To>
+			</tween:TweenItem>
+		</tween:TweenGroup>
+	</w:Declarations>
+	<e:Rect left="0" top="0" bottom="0" right="0" fillAlpha="0.5"/>
+	<e:Group horizontalCenter="0" verticalCenter="-50" width="640" height="957.948" scaleX="0.75" scaleY="0.75">
+		<e:Image source="sheet_json.dibankuan_chenggong@3x(1)" scale9Grid="92,106,91,105" width="638" height="755" y="202.771" x="0" visible="true" alpha="1"/>
+		<e:Image source="sheet_json.tiaopiao@3x" y="2.501" scaleX="1.3333333333333335" scaleY="1.3333333333333335" width="539.269" height="275.993" horizontalCenter="0"/>
+		<e:Image id="image_eff" source="sheet_json.guang@3x(1)" width="500" height="500" anchorOffsetX="250" anchorOffsetY="250" verticalCenter="44.02600000000001" horizontalCenter="0"/>
+		<e:Image source="sheet_json.day3_jin@3x" y="346.091" width="246.801" height="274.027" horizontalCenter="0.5"/>
+		<e:Image source="sheet_json.coins@3x" x="107.45" y="674.412"/>
+		<e:Label text="+99999999" x="214.28" y="695.342" size="60" bold="true" fontFamily="Arial" textColor="0xFFFF00"/>
+		<e:Group id="group" y="845.946" anchorOffsetX="215" anchorOffsetY="88" horizontalCenter="0.5">
+			<e:Image source="sheet_json.ty@3x" y="0" x="0"/>
+			<e:Label y="74.31" text="CASH OUT" size="54" bold="true" horizontalCenter="0.5"/>
+		</e:Group>
+	</e:Group>
+
+</e:Skin>

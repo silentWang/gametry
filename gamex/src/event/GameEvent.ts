@@ -8,6 +8,8 @@ class GameEvent extends egret.Event{
     static RESIZE_EVENT = "RESIZE_EVENT"
     //隐藏按钮
     static START_EVENT = "START_EVENT";
+
+    static CLICK_ITEM = "CLICK_ITEM"
     
 
 }

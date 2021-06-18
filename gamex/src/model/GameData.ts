@@ -4,18 +4,13 @@ class GameData {
     static GAME_VERSION = "1.1.1";
     //
     static urlPath = "";
+    /**发布一体版 */
+    static isPublish = false;
+    /**1一步 2三步 0直接 */
+    static stepTryType = 1;
     //app版和本地测试版
     static isLocal = true;
-    //是否是测试版
-    static isTestMode = false;
-    //IP
-    static IP = "";//v2
-    static IP_V3 = "";//v3
-    //基础信息包括 token等
-    static baseData;
     //userdata
     static userData;
-    //配置信息
-    static gameConfig = [];
 
 }

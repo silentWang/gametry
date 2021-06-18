@@ -66,4 +66,34 @@ class GameSound{
         }
     }
 
+    public playH5Music(data:{type,data}){
+        if(!this.soundVec){
+            this.soundVec = {};
+        }
+        if(this.soundVec[data.type]){
+            if(this.soundVec[data.type].paused){
+                this.soundVec[data.type].play();
+            }
+            return;
+        }
+        let sound = document.createElement("audio");
+        sound.src = "data:audio/mp3;base64,"+data.data;
+        document.body.appendChild(sound);
+        sound.loop = true;
+        sound.autoplay = true;
+        sound.play();
+        this.soundVec[data.type] = sound;
+    }
+
+    public playH5Audio(data:{type,data}){
+        let sound = document.createElement("audio");
+        sound.src = "data:audio/mp3;base64,"+data.data;
+        document.body.appendChild(sound);
+        sound.loop = false;
+        sound.play();
+        sound.addEventListener("ended",()=>{
+            document.body.removeChild(sound);
+        });
+    }
+
 }

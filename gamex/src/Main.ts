@@ -56,7 +56,13 @@ class Main extends eui.UILayer {
     }
 
     private async runGame() {
-        await this.loadResource();
+        if(GameData.isPublish){
+            RES.loadConfig("resource/default.res.json", "resource/");
+            await this.loadLocal();
+        }
+        else {
+            await this.loadResource();
+        }
         this.createGameScene();
     }
 
@@ -66,12 +72,43 @@ class Main extends eui.UILayer {
             this.stage.addChild(loadingView);
             await RES.loadConfig("resource/default.res.json", "resource/");
             await this.loadTheme();
-            await RES.loadGroup("preload", 0, loadingView);
+            await RES.loadGroup("preload", 0);
             this.stage.removeChild(loadingView);
         }
         catch (e) {
             console.error(e);
         }
+    }
+
+    private async loadLocal(){
+        let json = {
+            "groups": [
+                {
+                    "keys": "bg_jpg,sheet_json",
+                    "name": "preload"
+                }
+            ],
+            "resources": [
+                {
+                    "url": "assets/bg.jpg",
+                    "type": "image",
+                    "name": "bg_jpg"
+                },
+                {
+                    "url": "assets/sheet.json",
+                    "type": "sheet",
+                    "name": "sheet_json",
+                    "subkeys": "$@3x,0@3x,1@3x,2@3x,3@3x,4@3x,5@3x,6@3x,7@3x,8@3x,9@3x,coins@3x,guang@3x(1),guangg@3x,jindu@3x,jindu@3x(2),paibei_01@3x,pp @3x,tianjia@3x(1),top_bgg@3x(1),tyi_bg@3x,xin@3x,xin_1@3x,yuanhu@3x"
+                }
+            ]
+        }
+        let item = { type: "legacyResourceConfig", root:"resource/", url:"default.res.json", name: "default.res.json" }
+        ResLocalLoad.loadLoadJSON(item,json);
+        await this.loadTheme();
+        if (RES.config.config.loadGroup.indexOf("preload") == -1) {
+            RES.config.config.loadGroup.push("preload");
+        }
+        await ResLocalLoad.loadLocalRes(SourceUtil.sheet_main);
     }
 
     private loadTheme() {
@@ -91,9 +128,7 @@ class Main extends eui.UILayer {
      */
     protected async createGameScene(){
         Game.instance().setStage(this.stage);
-        if(GameData.isLocal){
-            Game.instance().gotoGame();
-            return;
-        }
+        Game.instance().gotoGame();
+        AppCenter.gameStart(()=>{});
     }
 }

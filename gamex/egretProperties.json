@@ -30,5 +30,10 @@
   ],
   "vivo": {
     "usePlugin": true
+  },
+  "eui": {
+    "exmlRoot": [
+      "resource/eui_skins"
+    ]
   }
 }

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="GameSceneSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ns1="*">
+	<w:Config id="17a0d44a792"/>
+	<e:Group width="780" height="1200" horizontalCenter="0" top="0">
+		<e:Group y="0" horizontalCenter="0">
+			<e:Group y="0" scaleX="0.8" scaleY="0.8" horizontalCenter="0">
+			<e:Image source="sheet_json.jindu@3x" y="248.74" visible="true" x="18.497"/>
+			<e:Image id="img_progress" source="sheet_json.jindu@3x(2)" y="254.8" visible="true" x="26.493"/>
+				<e:Image source="sheet_json.xin@3x" x="163.284" y="250"/>
+				<e:Image source="sheet_json.xin@3x" x="313.406" y="257.372"/>
+				<e:Image source="sheet_json.xin@3x" x="481.496" y="255"/>
+				<e:Image id="img_star" source="sheet_json.xin_1@3x" x="626.567" y="239.051"/>
+				<e:Rect id="rect_mask" width="575.397" height="60" x="12.579" y="248.323"/>
+			</e:Group>
+			<e:Group y="13" scaleX="0.8" scaleY="0.8" x="521.638">
+			<e:Image x="47" y="19" source="sheet_json.tyi_bg@3x"/>
+			<e:Image source="sheet_json.coins@3x" x="0" y="0"/>
+			<e:Image source="sheet_json.tianjia@3x(1)" x="193.07" y="7"/>
+			<e:Label id="txt3" text="0" x="99" y="33.89" touchEnabled="false" bold="true" size="40"/>
+			</e:Group>
+			<e:Group y="13" scaleX="0.8" scaleY="0.8" x="286.015">
+			<e:Image source="sheet_json.tyi_bg@3x" x="47" y="19"/>
+			<e:Image x="-6.321" y="4.214" source="sheet_json.pp @3x" width="93" height="102"/>
+			<e:Image source="sheet_json.tianjia@3x(1)" x="193.07" y="7"/>
+			<e:Label id="txt2" text="$0" x="99" y="33.89" touchEnabled="false" bold="true" size="40"/>
+			</e:Group>
+			<e:Group y="13.32" scaleX="0.8" scaleY="0.8" x="19.333">
+			<e:Image source="sheet_json.top_bgg@3x(1)" x="0" y="0" scale9Grid="80,26,79,26" width="308.545" height="134.9"/>
+			<e:Label text="Best recon" x="58" y="17.56" size="40"/>
+			<e:Label id="txt1" text="0" y="71.81" size="48" bold="true" width="200.651" horizontalCenter="0" textAlign="center" textColor="0xFFFF00"/>
+			</e:Group>
+		</e:Group>
+		<e:Group scaleX="0.72" scaleY="0.72" horizontalCenter="0" verticalCenter="0" height="450" width="998">
+			<e:Group x="0" y="0">
+				<ns1:Card id="card0" x="0" y="0" width="136" height="199"/>
+				<ns1:Card id="card1" x="144" y="0" width="136" height="199"/>
+				<ns1:Card id="card2" x="287" y="0" width="136" height="199"/>
+				<ns1:Card id="card3" x="431" y="0" width="136" height="199"/>
+				<ns1:Card x="862" y="0" width="136" height="199" id="card4"/>
+				<ns1:Card x="713.125" y="0" width="136" height="199" id="card5"/>
+				<ns1:Card x="0" y="228" width="136" height="199" id="card6"/>
+				<ns1:Card x="144" y="228" width="136" height="199" id="card7"/>
+				<ns1:Card x="287" y="228" width="136" height="199" id="card8"/>
+				<ns1:Card x="431" y="228" width="136" height="199" id="card9"/>
+				<ns1:Card x="575" y="228" width="136" height="199" id="card10"/>
+				<ns1:Card x="718" y="228" width="136" height="199" id="card11"/>
+				<ns1:Card x="862" y="228" width="136" height="199" id="card12"/>
+			</e:Group>
+			<e:Group id="xgrp0" x="67.316" y="297" touchChildren="true" anchorOffsetX="68" anchorOffsetY="68" width="136"/>
+			<e:Group id="xgrp1" x="211" y="297" touchChildren="true" anchorOffsetX="68" anchorOffsetY="68" width="136"/>
+			<e:Group id="xgrp2" x="354" y="297" touchChildren="true" anchorOffsetX="68" anchorOffsetY="68" width="136"/>
+			<e:Group id="xgrp3" x="498" y="297" touchChildren="true" anchorOffsetX="68" anchorOffsetY="68" width="136"/>
+			<e:Group id="xgrp4" x="641" y="297" touchChildren="true" anchorOffsetX="68" anchorOffsetY="68" width="136"/>
+			<e:Group id="xgrp5" x="785" y="297" touchChildren="true" anchorOffsetX="68" anchorOffsetY="68" width="136"/>
+			<e:Group id="xgrp6" x="928.364" y="297" touchChildren="true" anchorOffsetX="68" anchorOffsetY="68" width="136"/>
+		</e:Group>
+		<e:Group id="grp_coin" y="122.554" horizontalCenter="0" width="372" visible="false" locked="true">
+			<e:Image source="sheet_json.$@3x" x="0" y="0"/>
+			<e:Image source="sheet_json.0@3x" x="39" y="1"/>
+			<e:Image source="sheet_json.0@3x" x="78" y="3"/>
+			<e:Image source="sheet_json.0@3x" x="109" y="3"/>
+			<e:Image source="sheet_json.0@3x" x="149" y="4"/>
+			<e:Image source="sheet_json.0@3x" x="196" y="3"/>
+			<e:Image source="sheet_json.0@3x" x="236" y="3"/>
+			<e:Image source="sheet_json.0@3x" x="277" y="11"/>
+			<e:Image source="sheet_json.0@3x" x="318" y="3"/>
+			<e:Image source="sheet_json.0@3x" x="354.56" y="2"/>
+			<e:layout>
+				<e:HorizontalLayout horizontalAlign="center" verticalAlign="middle"/>
+			</e:layout>
+		</e:Group>
+	</e:Group>
+	<e:Group id="grp_download" horizontalCenter="0" bottom="10" touchChildren="false">
+		<e:Rect width="700" height="120" ellipseWidth="30" ellipseHeight="30" fillAlpha="1" fillColor="0xFFFFFF" strokeWeight="1"/>
+		<e:Image source="sheet_json.icon" x="67.716" width="100" height="100" verticalCenter="0"/>
+		<e:Rect width="250" height="80" x="388.384" fillColor="0xFFCC00" strokeWeight="0" fillAlpha="1" y="20" ellipseWidth="40" ellipseHeight="40"/>
+		<e:Label text="Download" x="413.384" y="39" bold="true" size="42" alpha="1" stroke="0"/>
+		<e:Label text="POPCARD" x="190.418" y="31.398" bold="true" textColor="0x000000" size="26"/>
+		<e:Label text="$0.01" x="191.508" y="69.91" bold="true" textColor="0x000000" size="26" alpha="0.5"/>
+	</e:Group>
+</e:Skin>

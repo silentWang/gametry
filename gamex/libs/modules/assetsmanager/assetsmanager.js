@@ -1174,7 +1174,7 @@ var RES;
      * @platform Web,Native
      * @language zh_CN
      */
-    function loadConfig(url, resourceRoot) {
+    function loadConfig(url, resourceRoot,isall = false) {
         if (resourceRoot.indexOf('://') >= 0) {
             var temp = resourceRoot.split('://');
             resourceRoot = temp[0] + '://' + RES.path.normalize(temp[1] + '/');

@@ -30,6 +30,14 @@ class GameView{
         return this._euiView;
     }
 
+    private _resultView:ResultView;
+    public get resultView(){
+        if(!this._resultView){
+            this._resultView = new ResultView();
+        }
+        return this._resultView;
+    }
+
     public closeAll(){
         if(this._euiView) this._euiView.close();
         if(this._uibView) this._uibView.close();

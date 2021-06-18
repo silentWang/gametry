@@ -74,7 +74,14 @@ class GameUtil {
         egret.Tween.removeTweens(spr);
         if(!sobj || !tobj) return;
         egret.Tween.get(spr).to(tobj,time).call(()=>{
-            egret.Tween.get(spr).to(sobj,time).call(()=>{
+            let bool = false;
+            for(let key in sobj){
+                if(sobj[key] == spr[key]){
+                    bool = true;
+                }
+            }
+            let obj = bool ? tobj : sobj;
+            egret.Tween.get(spr).to(obj,time).call(()=>{
                 if(times == 0){
                     this.playBreathAnim(spr,sobj,tobj,time);
                 }
@@ -84,6 +91,64 @@ class GameUtil {
             });
         });
     }
+    /**下落特效 */
+    static playFollowDownEff(count = 50){
+        let grp = new eui.Group();
+        Game.instance().addTop(grp);
+        grp.x = Game.instance().gameStage.stageWidth/2;
+        grp.y = Game.instance().gameStage.stageHeight/2;
+        let index = 0;
+        let idx = egret.setInterval(()=>{
+            let img = new eui.Image();
+            img.source = "sheet_json.coins@3x";
+            let x0 = 0;
+            let y0 = 0;
+            let x1 = 300 + Math.floor(300*Math.random());
+            let y1 = y0;
+            let angle = -Math.PI*Math.random();
+            let sx = (x1-x0)*Math.cos(angle) - (y1-y0)*Math.sin(angle) + x0;
+            let sy = (y1-y0)*Math.cos(angle) + (x1-x0)*Math.sin(angle) + y0;
+            let scale = 0.8 + Math.random();
+            grp.addChild(img);
+            if(index == count - 1){
+                egret.clearInterval(idx)
+                egret.Tween.get(img).to({x:sx,y:sy},300,egret.Ease.sineOut).call(()=>{
+                    egret.Tween.removeTweens(img);
+                    egret.setTimeout(()=>{
+                        egret.Tween.get(img).to({y:1000},800).call(()=>{
+                            grp.removeChildren();
+                            if(grp.parent){
+                                grp.parent.removeChild(grp);
+                            }
+                        })
+                    },this,0);
+                });
+            }
+            else{
+                egret.Tween.get(img).to({x:sx,y:sy},300,egret.Ease.sineOut).call(()=>{
+                    egret.setTimeout(()=>{
+                        egret.Tween.get(img).to({y:1000},800,egret.Ease.cubicIn)
+                    },this,0);
+                });
+            }
+            index++;
+        },this,10);
+    }
+    /**循环 */
+    // static playLoopAnim(spr,sobj,tobj,time = 800){
+    //     egret.Tween.removeTweens(spr);
+    //     if(!sobj || !tobj) return;
+    //     egret.Tween.get(spr).to(tobj,time).call(()=>{
+    //         egret.Tween.get(spr).to(sobj,time).call(()=>{
+    //             if(times == 0){
+    //                 this.playBreathAnim(spr,sobj,tobj,time);
+    //             }
+    //             else{
+    //                 egret.Tween.removeTweens(spr);
+    //             }
+    //         });
+    //     });
+    // }
     //灰显滤镜 滤镜比较耗性能 注意合理使用
     private static grayFilter;
     static getGrayFilter(){
@@ -147,5 +212,56 @@ class GameUtil {
             }
         }
         return val;
+    }
+
+    /**喷射效果 */
+    static playFirePieces(r = 100,count = 50,angleMin = 0,angleMax = 360,x = SpriteUtil.stageCenterX,y = SpriteUtil.stageCenterY){
+        let grp = new eui.Group();
+        grp.x = x;
+        grp.y = y;
+        Game.instance().addTop(grp);
+        let index = 0;
+        let idx = egret.setInterval(()=>{
+            let img = new eui.Image();
+            img.source = `sheet_json.fp${1 + Math.floor(5*Math.random())}`;
+            grp.addChild(img);
+            img.width = 64;
+            img.height = 64;
+            img.anchorOffsetX = 32;
+            img.anchorOffsetY = 32;
+            img.alpha = 0.8 + 0.2*Math.random();
+            let scale = 0.2 + 0.8*Math.random();
+            let nscale = 0.8 + 0.8*Math.random();
+            img.scaleX = nscale;
+            img.scaleY = nscale;
+            let angle = angleMin/180*Math.PI + (angleMax - angleMin)/180*Math.PI*Math.random();
+            r + r/2 + r/2 * Math.random();
+            let sx = r*Math.cos(angle) - Math.sin(angle);
+            let sy = Math.cos(angle) + r*Math.sin(angle);
+            let srotate = 360 + 2*360*Math.random();
+            let trotate = 360 + 2*360*Math.random();
+            let yy = 50*Math.random();
+            let falpha = 0.2 + 0.5*Math.random();
+            let alpha = 0;
+            let ax = 200 * Math.random();
+            ax = sx < 0 ? sx - ax : sx + ax;
+            grp.addChild(img);
+            let obj1 = {x:sx,y:sy,rotation:srotate,alpha:falpha,scaleX:scale,scaleY:scale};
+            let obj2 = {x:ax,y:yy,rotation:trotate,alpha,scaleX:0.01,scaleY:0.01};
+            if(index == count - 1){
+                egret.clearInterval(idx)
+                egret.Tween.get(img).to(obj1,400,egret.Ease.sineOut).to(obj2,500).call(()=>{
+                    egret.Tween.removeTweens(img);
+                    grp.removeChildren();
+                    if(grp.parent){
+                        grp.parent.removeChild(grp);
+                    }
+                });
+            }
+            else{
+                egret.Tween.get(img).to(obj1,400,egret.Ease.sineOut).to(obj2,500);
+            }
+            index++;
+        },this,10);
     }
 }

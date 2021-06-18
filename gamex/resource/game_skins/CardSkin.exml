@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="CardSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" width="136" height="199">
+	<e:Group id="grp_card" x="0" y="0">
+		<e:Image source="sheet_json.fengge_zhengmian_1@3x" x="0" y="0" width="136" height="199"/>
+		<e:Image id="img_b" source="sheet_json.fengge1_hongtao_big@3x" x="16" y="73"/>
+		<e:Image id="img_a" source="sheet_json.fengge1_hongtao_samll@3x" x="85.71" y="7.71"/>
+		<e:Label id="txt_num" text="7" x="10.69" y="7.71" textColor="0xDF2020" touchEnabled="false" fontFamily="Arial" bold="true" size="54"/>
+		<e:Image id="img_k" source="sheet_json.paibei_01@3x" x="0" y="0" width="136" height="199"/>
+	</e:Group>
+	<e:Group id="grp_alpha" x="0" y="0" alpha="0.5">
+		<e:Rect width="136" height="199" ellipseWidth="20" ellipseHeight="20" strokeWeight="5" strokeColor="0xFFFFFF" x="0" y="0"/>
+		<e:Label id="txt_blank" text="A" bold="true" size="120" textColor="0xFFFFFF" x="25" y="40"/>
+	</e:Group>
+	<e:Image id="hand" source="sheet_json.hand" x="57" y="40"/>
+	<e:Group id="grp_eff" x="68" y="100"/>
+	<e:Image id="img_eff" source="sheet_json.cardglow" horizontalCenter="0" verticalCenter="0" scale9Grid="50,66,51,67" height="210"/>
+	
+</e:Skin>
