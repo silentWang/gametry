@@ -7,6 +7,7 @@ class ResultView extends BaseEuiView{
 
     private image_eff:eui.Image;
     private group:eui.Group;
+    private txt_num:eui.Label;
     protected childrenCreated(){
         super.childrenCreated();
         GameUtil.playBreathAnim(this.image_eff,{rotation:0},{rotation:-360},6000);
@@ -14,6 +15,7 @@ class ResultView extends BaseEuiView{
         this.touchChildren = false;
         this.addEventListener(egret.TouchEvent.TOUCH_TAP,AppCenter.install,this);
         GameUtil.playBreathAnim(this.group,{scaleX:1,scaleY:1},{scaleX:1.2,scaleY:1.2},300);
+        GameUtil.randomNumToText(this.txt_num,0,9999,"$");
     }
 
     protected resizeScene(){

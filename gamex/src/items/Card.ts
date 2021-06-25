@@ -110,8 +110,12 @@ class Card extends eui.Component implements eui.UIComponent{
     public setHand(bool = true){
         this.hand.visible = bool;
         egret.Tween.removeTweens(this.hand);
+        egret.Tween.removeTweens(this.img_eff);
+        this.img_eff.visible = false;
         if(bool){
             GameUtil.playBreathAnim(this.hand,{y:40},{y:60},250);
+            this.img_eff.visible = true;
+            GameUtil.playBreathAnim(this.img_eff,{alpha:1},{alpha:0.5},200);
         }
         this._isHand = bool;
     }
@@ -134,6 +138,7 @@ class Card extends eui.Component implements eui.UIComponent{
         this.img_eff.alpha = 0;
         egret.Tween.get(this.img_eff).to({alpha:1},100).wait(200).to({alpha:0},300).call(()=>{
             this.img_eff.visible = false;
+            egret.Tween.removeTweens(this.img_eff);
         });
     }
 

@@ -35,6 +35,7 @@ class AppCenter{
     /**下载安装 */
     static install(){
         window["install"] && window["install"]();
+        console.log("install")
     }
     /**开始游戏入口 */
     static gameStart(func:Function){

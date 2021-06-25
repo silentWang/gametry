@@ -6,8 +6,8 @@ class GameData {
     static urlPath = "";
     /**发布一体版 */
     static isPublish = false;
-    /**1一步 2三步 0直接 */
-    static stepTryType = 1;
+    /**1一步 2三步 0直接假试玩 */
+    static stepTryType = 2;
     //app版和本地测试版
     static isLocal = true;
     //userdata

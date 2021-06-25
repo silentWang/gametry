@@ -3,28 +3,29 @@
 	<w:Config id="17a0d44a792"/>
 	<e:Group width="780" height="1200" horizontalCenter="0" top="0">
 		<e:Group y="0" horizontalCenter="0">
-			<e:Group y="0" scaleX="0.8" scaleY="0.8" horizontalCenter="0">
-			<e:Image source="sheet_json.jindu@3x" y="248.74" visible="true" x="18.497"/>
-			<e:Image id="img_progress" source="sheet_json.jindu@3x(2)" y="254.8" visible="true" x="26.493"/>
-				<e:Image source="sheet_json.xin@3x" x="163.284" y="250"/>
-				<e:Image source="sheet_json.xin@3x" x="313.406" y="257.372"/>
-				<e:Image source="sheet_json.xin@3x" x="481.496" y="255"/>
-				<e:Image id="img_star" source="sheet_json.xin_1@3x" x="626.567" y="239.051"/>
-				<e:Rect id="rect_mask" width="575.397" height="60" x="12.579" y="248.323"/>
+			<e:Group y="0" scaleX="0.8" scaleY="0.8" horizontalCenter="0" width="624">
+			<e:Image y="250" visible="true" x="20" source="sheet_json.jindu1@2x"/>
+			<e:Image id="img_progress" y="252" visible="true" x="22" source="sheet_json.jindu2@2x"/>
+				<e:Image id="img_star1" x="43.739" y="241.576" source="sheet_json.star2@2x"/>
+				<e:Image id="img_star2" x="163.68" y="253.89" source="sheet_json.star2@2x"/>
+				<e:Image id="img_star3" x="287.088" y="259.347" source="sheet_json.star2@2x"/>
+				<e:Image id="img_star4" x="418.767" y="251.227" source="sheet_json.star2@2x"/>
+				<e:Image id="img_star5" x="543.291" y="237.591" source="sheet_json.star2@2x"/>
+				<e:Rect id="rect_mask" width="0" height="50" x="12.579" y="252.025" visible="true" ellipseHeight="50" ellipseWidth="50"/>
 			</e:Group>
-			<e:Group y="13" scaleX="0.8" scaleY="0.8" x="521.638">
+			<e:Group y="13" scaleX="0.8" scaleY="0.8" x="522" visible="false">
 			<e:Image x="47" y="19" source="sheet_json.tyi_bg@3x"/>
 			<e:Image source="sheet_json.coins@3x" x="0" y="0"/>
 			<e:Image source="sheet_json.tianjia@3x(1)" x="193.07" y="7"/>
 			<e:Label id="txt3" text="0" x="99" y="33.89" touchEnabled="false" bold="true" size="40"/>
 			</e:Group>
-			<e:Group y="13" scaleX="0.8" scaleY="0.8" x="286.015">
+			<e:Group y="13" scaleX="0.8" scaleY="0.8" x="492.117" visible="true">
 			<e:Image source="sheet_json.tyi_bg@3x" x="47" y="19"/>
 			<e:Image x="-6.321" y="4.214" source="sheet_json.pp @3x" width="93" height="102"/>
 			<e:Image source="sheet_json.tianjia@3x(1)" x="193.07" y="7"/>
-			<e:Label id="txt2" text="$0" x="99" y="33.89" touchEnabled="false" bold="true" size="40"/>
+			<e:Label id="txt2" text="$0" x="76.756" y="33.89" touchEnabled="false" bold="true" size="40" width="152.885" textAlign="center"/>
 			</e:Group>
-			<e:Group y="13.32" scaleX="0.8" scaleY="0.8" x="19.333">
+			<e:Group y="13.32" scaleX="0.8" scaleY="0.8" x="19.333" visible="false">
 			<e:Image source="sheet_json.top_bgg@3x(1)" x="0" y="0" scale9Grid="80,26,79,26" width="308.545" height="134.9"/>
 			<e:Label text="Best recon" x="58" y="17.56" size="40"/>
 			<e:Label id="txt1" text="0" y="71.81" size="48" bold="true" width="200.651" horizontalCenter="0" textAlign="center" textColor="0xFFFF00"/>
@@ -70,12 +71,19 @@
 			</e:layout>
 		</e:Group>
 	</e:Group>
-	<e:Group id="grp_download" horizontalCenter="0" bottom="10" touchChildren="false">
+	<e:Group id="grp_download" horizontalCenter="0" bottom="25" touchChildren="false">
 		<e:Rect width="700" height="120" ellipseWidth="30" ellipseHeight="30" fillAlpha="1" fillColor="0xFFFFFF" strokeWeight="1"/>
-		<e:Image source="sheet_json.icon" x="67.716" width="100" height="100" verticalCenter="0"/>
-		<e:Rect width="250" height="80" x="388.384" fillColor="0xFFCC00" strokeWeight="0" fillAlpha="1" y="20" ellipseWidth="40" ellipseHeight="40"/>
-		<e:Label text="Download" x="413.384" y="39" bold="true" size="42" alpha="1" stroke="0"/>
-		<e:Label text="POPCARD" x="190.418" y="31.398" bold="true" textColor="0x000000" size="26"/>
-		<e:Label text="$0.01" x="191.508" y="69.91" bold="true" textColor="0x000000" size="26" alpha="0.5"/>
+		<e:Image source="sheet_json.icon" x="17.93" width="100" height="100" verticalCenter="0"/>
+		<e:Group id="downGrp" x="547.432" y="60" width="250" height="80" anchorOffsetX="125" anchorOffsetY="40">
+			<e:Rect width="250" height="80" x="0" fillColor="0xFFCC00" strokeWeight="0" fillAlpha="1" y="0" ellipseWidth="40" ellipseHeight="40"/>
+			<e:Label text="Download" bold="true" size="42" alpha="1" stroke="0" horizontalCenter="0" verticalCenter="0"/>
+		</e:Group>
+		<e:Label text="Solitaire Pop" x="131.668" y="24.964" bold="true" textColor="0x000000" size="30"/>
+		<e:Image source="sheet_json.star1@2x" x="129.175" y="69" width="24" height="24"/>
+		<e:Image source="sheet_json.star1@2x" x="160" y="69" width="24" height="24"/>
+		<e:Image source="sheet_json.star1@2x" x="191" y="69" width="24" height="24"/>
+		<e:Image source="sheet_json.star1@2x" x="222" y="69" width="24" height="24"/>
+		<e:Image source="sheet_json.star1@2x" x="252.744" y="69" width="24" height="24"/>
+		<e:Label text="(313,578)" x="281.354" y="70.293" textColor="0x696867" size="22" bold="true"/>
 	</e:Group>
 </e:Skin>

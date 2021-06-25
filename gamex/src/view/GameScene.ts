@@ -5,12 +5,17 @@ class GameScene extends BaseScene{
 	}
 
 	private grp_coin:eui.Group;
-	private img_star:eui.Image;
 	private img_progress:eui.Image;
 	private rect_mask:eui.Rect;
 	private txt1:eui.Label;
 	private txt2:eui.Label;
 	private txt3:eui.Label;
+
+	private img_star1:eui.Image;
+	private img_star2:eui.Image;
+	private img_star3:eui.Image;
+	private img_star4:eui.Image;
+	private img_star5:eui.Image;
 
 	private card0:Card;
 	private card1:Card;
@@ -26,10 +31,13 @@ class GameScene extends BaseScene{
 	private card11:Card;
 	private card12:Card;
 	private grp_download:eui.Group;
+	private downGrp:eui.Group;
 	private xgrps:eui.Group[];
 	private dragFlag = false;
 	private rollGrp:eui.Group;
 	private dataArr = [];
+	private starsArr:eui.Image[];
+	private curStarIndex = 0;
 
 	protected childrenCreated(){
 		super.childrenCreated();
@@ -39,11 +47,27 @@ class GameScene extends BaseScene{
 		this.initData();
 		this.init();
 		this.grp_download.addEventListener(egret.TouchEvent.TOUCH_TAP,AppCenter.install,this);
+		GameUtil.playBreathAnim(this.downGrp,{scaleX:1,scaleY:1},{scaleX:1.2,scaleY:1.2},300);
+		let arr = [];
+		for(let i = 1;i <= 5;i++){
+			arr.push(this[`img_star${i}`]);
+		}
+		this.starsArr = arr;
 	}
 
 	private initData(){
 		let arr = [];
-		if(GameData.stepTryType == 1){
+		if(GameData.stepTryType == 0){
+			let arr0 = [13,3,12,2,11,1];
+			let arr1 = [13,1,12,4,11,3,10,4,9,1,8,4,7,1];
+			let arr2 = [13,2,12,1,11,2,10,1,9,4,8,3];
+			let arr3 = [9,3,8,2];
+			let arr4 = [13,4,12,3,11,4,10,3,9,2,8,1,7,4];
+			let arr5 = [10,2];
+			arr = [arr0,arr1,arr2,arr3,arr4,arr5];
+			Game.instance().gameStage.addEventListener(egret.TouchEvent.TOUCH_TAP,AppCenter.install,this);
+		}
+		else if(GameData.stepTryType == 1){
 			let arr0 = [13,3,12,2,11,1];
 			let arr1 = [13,1,12,4,11,3,10,4,9,1,8,4,7,1];
 			let arr2 = [13,2,12,1,11,2,10,1,9,4,8,3];
@@ -125,6 +149,7 @@ class GameScene extends BaseScene{
 			egret.Tween.get(this.card5).to({scaleX:1},100,egret.Ease.cubicOut).call(()=>{
 				this.card5.setHand(true);
 			})
+			this.curStarIndex++;
 		}
 		else if(item == this.card5){
 			this.moveToGrp(item,this.xgrps[0]).then(()=>{
@@ -132,8 +157,10 @@ class GameScene extends BaseScene{
 				let mitem = grp.getChildAt(grp.numChildren - 1) as Card;
 				mitem.setHand(true);
 			});
+			this.curStarIndex++;
 		}
 		else if(item.parent == this.xgrps[5]){
+			this.curStarIndex++;
 			if(item.num == 7){
 				this.moveToCard(item,this.card2).then(()=>{
 					let grp = this.xgrps[5];
@@ -153,9 +180,18 @@ class GameScene extends BaseScene{
 						mitem.setData(8,2);
 					}
 					this.playSuccess();
+					this.curStarIndex++;
+					egret.Tween.get(this.rect_mask).to({width:this.curStarIndex*630/5},200);
+					this.starsArr[this.curStarIndex - 1].source = "sheet_json.star1@2x";
 				});
 			}
 		}
+		egret.Tween.get(this.rect_mask).to({width:this.curStarIndex*630/5},200);
+		this.starsArr[this.curStarIndex - 1].source = "sheet_json.star1@2x";
+		let tnum = Math.ceil(this.curStarIndex * 9999/4);
+		let start = isNaN(parseInt(this.txt1.text.slice(1))) ? 0 : parseInt(this.txt1.text.slice(1));
+		GameUtil.randomNumToText(this.txt1,start*100,tnum,"$");
+		GameUtil.randomNumToText(this.txt2,start*100,tnum,"$");
 	}
 	
 	private moveToGrp(item,grp,remove = false){
@@ -373,11 +409,11 @@ class GameScene extends BaseScene{
 
 	private showResult(){
 		// this.grp_coin.visible = true;
-		this.img_star.source = "sheet_json.xin@3x";
-		egret.Tween.get(this.rect_mask).to({width:790},200);
-		this.txt1.text = "999999";
-		this.txt2.text = "$999";
-		this.txt3.text = "999k";
+		// GameUtil.randomNumToText(this.txt1,99.99,"$");
+		// GameUtil.randomNumToText(this.txt2,99.99,"$");
+		// this.txt1.text = "999999";
+		// this.txt2.text = "$999";
+		// this.txt3.text = "999k";
 		// let index = 0;
 		// let num = this.grp_coin.numChildren;
 		// let invervalid = egret.setInterval(()=>{
@@ -410,10 +446,6 @@ class GameScene extends BaseScene{
 			GameUtil.playFollowDownEff();
 		},this,1500);
 		AppCenter.gameEnd();
-	}
-
-	private loadApp(){
-		AppCenter.install();
 	}
 
 	protected resizeContent(portrait:boolean){

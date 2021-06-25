@@ -100,7 +100,7 @@ class GameUtil {
         let index = 0;
         let idx = egret.setInterval(()=>{
             let img = new eui.Image();
-            img.source = "sheet_json.coins@3x";
+            img.source = "sheet_json.pp @3x";
             let x0 = 0;
             let y0 = 0;
             let x1 = 300 + Math.floor(300*Math.random());
@@ -149,6 +149,22 @@ class GameUtil {
     //         });
     //     });
     // }
+
+    static randomNumToText(txt:eui.Label,start = 0,tnum:number = 9999,forv = ""){
+        let num = 1;
+        let idx = egret.setInterval(()=>{
+            start += num;
+            num++;
+            if(start >= tnum){
+                start = tnum;
+                egret.clearInterval(idx);
+            }
+            txt.text = `${forv}${(start/100).toFixed(2)}`;
+        },this,10);
+    }
+
+
+
     //灰显滤镜 滤镜比较耗性能 注意合理使用
     private static grayFilter;
     static getGrayFilter(){

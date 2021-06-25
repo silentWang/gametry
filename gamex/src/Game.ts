@@ -14,8 +14,8 @@ class Game {
     private _top:egret.DisplayObjectContainer;
     private _gameDemo:GameDemo;
     private stageBg:egret.Bitmap;
-    private sbgWid = 1000;
-    private sbgHgt = 1000;
+    private sbgWid = 1920;
+    private sbgHgt = 1080;
     public setStage(stage:egret.Stage){
         this._gameStage = stage;
         SpriteUtil.stageWidth = stage.stageWidth;
@@ -46,8 +46,26 @@ class Game {
     private setResize(){
         let isPortrait = this._gameStage.stageHeight >= this._gameStage.stageWidth;
         this.gameStage.scaleMode = isPortrait ? egret.StageScaleMode.FIXED_WIDTH : egret.StageScaleMode.FIXED_HEIGHT;
-        this.stageBg.width = this.sbgWid <= this._gameStage.stageWidth ? this._gameStage.stageWidth : this.sbgWid;
-        this.stageBg.height = this.sbgWid <= this._gameStage.stageHeight ? this._gameStage.stageHeight : this.sbgWid;
+        let wrate = this.sbgWid/this._gameStage.stageWidth;
+        let hrate = this.sbgHgt/this._gameStage.stageHeight;
+        if(wrate < hrate){
+            this.stageBg.width = this._gameStage.stageWidth;
+            this.stageBg.height = this._gameStage.stageWidth*this.sbgHgt/this.sbgWid
+        }
+        else{
+            this.stageBg.height = this._gameStage.stageHeight;
+            this.stageBg.width = this._gameStage.stageHeight * this.sbgWid/this.sbgHgt;
+        }
+
+        // if(this._gameStage.stageWidth < this.sbgWid && this._gameStage.stageHeight < this.sbgHgt){
+        //     if
+        // }
+
+
+
+
+        // this.stageBg.width = this.sbgWid <= this._gameStage.stageWidth ? this._gameStage.stageWidth : this.sbgWid;
+        // this.stageBg.height = this.sbgWid <= this._gameStage.stageHeight ? this._gameStage.stageHeight : this.sbgWid;
         SpriteUtil.stageWidth = this._gameStage.stageWidth;
         SpriteUtil.stageHeight = this._gameStage.stageHeight;
         SpriteUtil.stageCenterX = SpriteUtil.stageWidth/2;
